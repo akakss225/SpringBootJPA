@@ -18,7 +18,7 @@ class MemberRepositoryV0Test {
     @Test
     void crud() throws SQLException {
         // save
-        Member member = new Member("memberV3", 20000);
+        Member member = new Member("memberV6", 20000);
         repository.save(member);
 
         // findById
@@ -26,7 +26,16 @@ class MemberRepositoryV0Test {
         log.info("findMember={}", findMember);
         log.info("member == findMember {}", member == findMember);
         log.info("member == findMember {}", member.equals(findMember));
+        log.info("member.getMoney = ", member.getMoney());
         assertThat(findMember).isEqualTo(member);
 
+
+        // update : money = 10000 > 20000
+        repository.update(member.getMemberId(), 30000);
+        Member updateMember = repository.findById(member.getMemberId());
+        assertThat(updateMember.getMoney()).isEqualTo(30000);
+        log.info("member.getMoney(update) = ", member.getMoney());
     }
+
+
 }
