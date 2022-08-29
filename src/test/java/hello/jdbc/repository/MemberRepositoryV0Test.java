@@ -44,5 +44,4 @@ class MemberRepositoryV0Test {
 
     }
 
-
 }
