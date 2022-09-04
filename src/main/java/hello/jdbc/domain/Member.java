@@ -8,6 +8,7 @@ public class Member {
     private String memberId;
     private int money;
 
+    // command + N >> 생성자 만드는 단축키
     public Member() {
     }
 
@@ -15,5 +16,6 @@ public class Member {
         this.memberId = memberId;
         this.money = money;
     }
+
 
 }

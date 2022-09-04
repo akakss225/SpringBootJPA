@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.sql.*;
 import java.util.NoSuchElementException;
 
+/*
+    JDBC - DriverMannager 사용
+ */
 @Slf4j
 public class MemberRepositoryV0 {
 
@@ -14,7 +17,9 @@ public class MemberRepositoryV0 {
     public Member save(Member member) throws SQLException {
         String sql = "insert into member(member_id, money) values(?, ?)";
 
+        // 연결자
         Connection con = null;
+        // 실제 쿼리를 날리는 객체
         PreparedStatement pstmt = null;
 
 
@@ -23,6 +28,7 @@ public class MemberRepositoryV0 {
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, member.getMemberId());
             pstmt.setInt(2, member.getMoney());
+            // Statement를 통해 준비된 SQL 을 커넥션을 통해 실제 DB에 전달한다 >> Update Query의 경우 영향을 받은 row갯수를 return함
             pstmt.executeUpdate();
             return member;
         } catch (SQLException e) {

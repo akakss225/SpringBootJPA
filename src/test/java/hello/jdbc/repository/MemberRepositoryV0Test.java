@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+// command + shift + T >> 동일한 이름의 동일한 package 의 Test file 을 자동 생성해주는 단축키
 @Slf4j
 class MemberRepositoryV0Test {
 
